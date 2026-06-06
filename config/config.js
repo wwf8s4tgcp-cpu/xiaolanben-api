@@ -35,7 +35,7 @@ const config = {
 
   // Supabase (PostgreSQL) 数据库配置
   database: {
-    connectionString: 'postgresql://postgres:3ab%40%2CVCy*zALsGk@aws-1-ap-northeast-1.pooler.supabase.com:5432/postgres',
+    connectionString: undefined,
     host: 'aws-1-ap-northeast-1.pooler.supabase.com',
     user: 'postgres.jilfvyspdgasvpzvntyc',
     password: '3ab@,VCy*zALsGk',
