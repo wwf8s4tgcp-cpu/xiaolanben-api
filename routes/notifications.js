@@ -297,7 +297,7 @@ router.get('/', authenticateToken, async (req, res) => {
 
     // 获取未读数量
     const { rows: unreadResult } = await pool.query(
-      'SELECT COUNT(*) as unread FROM notifications WHERE user_id = $1 AND is_read = 0',
+      'SELECT COUNT(*) as unread FROM notifications WHERE user_id = $1 AND is_read = false',
       [userId]
     );
     const unread = Number(unreadResult[0].unread);
@@ -340,7 +340,7 @@ router.put('/:id/read', authenticateToken, async (req, res) => {
 
     // 标记为已读
     await pool.query(
-      'UPDATE notifications SET is_read = 1 WHERE id = $1',
+      'UPDATE notifications SET is_read = true WHERE id = $1',
       [notificationId]
     );
 
@@ -357,7 +357,7 @@ router.put('/read-all', authenticateToken, async (req, res) => {
     const userId = req.user.id;
 
     await pool.query(
-      'UPDATE notifications SET is_read = 1 WHERE user_id = $1 AND is_read = 0',
+      'UPDATE notifications SET is_read = true WHERE user_id = $1 AND is_read = false',
       [userId]
     );
 
@@ -403,7 +403,7 @@ router.get('/unread-count-by-type', authenticateToken, async (req, res) => {
         SUM(CASE WHEN type = 6 THEN 1 ELSE 0 END) as follows,
         COUNT(*) as total
       FROM notifications 
-      WHERE user_id = $1 AND is_read = 0`,
+      WHERE user_id = $1 AND is_read = false`,
       [userId]
     );
 
@@ -431,7 +431,7 @@ router.get('/unread-count', authenticateToken, async (req, res) => {
     const userId = req.user.id;
 
     const { rows } = await pool.query(
-      'SELECT COUNT(*) as count FROM notifications WHERE user_id = $1 AND is_read = 0',
+      'SELECT COUNT(*) as count FROM notifications WHERE user_id = $1 AND is_read = false',
       [userId]
     );
 
