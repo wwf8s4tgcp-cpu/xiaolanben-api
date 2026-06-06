@@ -109,10 +109,11 @@ app.use('*', (req, res) => {
 // 启动自动解封服务
 startAutoUnbanService();
 
-// 非 Vercel 环境时才启动服务器（Vercel Serverless 使用 api/index.js 导出）
+// 非 Vercel 环境时才启动服务器
+// Render 会设置 PORT 环境变量，Vercel 使用 Serverless 导出
+const PORT = process.env.PORT || config.server.port;
 if (!process.env.VERCEL) {
-  const PORT = config.server.port;
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`● 服务器运行在端口 ${PORT}`);
     console.log(`● 环境: ${config.server.env}`);
   });
