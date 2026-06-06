@@ -592,7 +592,7 @@ router.post('/register', async (req, res) => {
 
     // 保存会话
     await dbExec(
-      'INSERT INTO user_sessions (user_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, 1)',
+      'INSERT INTO user_sessions (user_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, true)',
       [userId.toString(), accessToken, refreshToken, userAgent]
     );
 
@@ -676,7 +676,7 @@ router.post('/login', async (req, res) => {
     // 清除旧会话并保存新会话
     await dbExec('UPDATE user_sessions SET is_active = false WHERE user_id = ?', [user.id.toString()]);
     await dbExec(
-      'INSERT INTO user_sessions (user_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, 1)',
+      'INSERT INTO user_sessions (user_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, true)',
       [user.id.toString(), accessToken, refreshToken, userAgent]
     );
 
@@ -905,7 +905,7 @@ router.post('/admin/login', async (req, res) => {
     // 清除旧会话并保存新会话
     await dbExec('UPDATE admin_sessions SET is_active = false WHERE admin_id = ?', [admin.id.toString()]);
     await dbExec(
-      'INSERT INTO admin_sessions (admin_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, 1)',
+      'INSERT INTO admin_sessions (admin_id, token, refresh_token, expires_at, user_agent, is_active) VALUES (?, ?, ?, NOW() + INTERVAL \'7 days\', ?, true)',
       [admin.id.toString(), accessToken, refreshToken, userAgent]
     );
 
