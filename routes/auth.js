@@ -646,10 +646,12 @@ router.post('/login', async (req, res) => {
       return res.status(HTTP_STATUS.FORBIDDEN).json({ code: RESPONSE_CODES.FORBIDDEN, message: '账户已被禁用' });
     }
 
-    // 验证密码（哈希比较）
+    // 验证密码（SHA256 哈希比较）
+    const crypto = require('crypto');
+    const passwordHash = crypto.createHash('sha256').update(password).digest('hex');
     const { rows: passwordCheck } = await dbExec(
-      'SELECT 1 FROM users WHERE id = ? AND password = encode(digest(?, \'sha256\'), \'hex\')',
-      [user.id.toString(), password]
+      'SELECT 1 FROM users WHERE id = ? AND password = ?',
+      [user.id.toString(), passwordHash]
     );
 
     if (passwordCheck.length === 0) {
