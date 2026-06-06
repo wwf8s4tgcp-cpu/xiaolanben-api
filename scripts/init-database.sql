@@ -1,4 +1,4 @@
--- 小石榴图文社区数据库初始化脚本
+-- 小蓝本图文社区数据库初始化脚本
 -- 创建数据库（如果不存在）
 CREATE DATABASE IF NOT EXISTS `xiaoshiliu` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `xiaoshiliu`;
