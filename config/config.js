@@ -23,7 +23,7 @@ const config = {
 
   // CORS配置
   cors: {
-    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim()) : ['http://localhost:5173', 'http://localhost:3001', 'https://xiaolanben-frontend.vercel.app']
+    origin: ['http://localhost:5173', 'http://localhost:3001', 'https://xiaolanben-frontend.vercel.app', 'https://xiaolanben.cc.cd'],
   },
 
   // JWT配置
