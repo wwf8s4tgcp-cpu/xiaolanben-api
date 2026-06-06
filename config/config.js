@@ -35,7 +35,7 @@ const config = {
 
   // Supabase (PostgreSQL) 数据库配置
   database: {
-    connectionString: process.env.DATABASE_URL || '',
+    connectionString: 'postgresql://postgres:3ab%40%2CVCy*zALsGk@db.jilfvyspdgasvpzvntyc.supabase.co:5432/postgres',
     host: 'db.jilfvyspdgasvpzvntyc.supabase.co',
     user: 'postgres',
     password: '3ab@,VCy*zALsGk',
