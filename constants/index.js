@@ -1,0 +1,51 @@
+/**
+ * 应用常量定义
+ */
+
+// HTTP状态码
+const HTTP_STATUS = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  INTERNAL_SERVER_ERROR: 500
+};
+
+// 响应码
+const RESPONSE_CODES = {
+  SUCCESS: 200,
+  ERROR: 500,
+  VALIDATION_ERROR: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  CONFLICT: 409
+};
+
+// 错误消息
+const ERROR_MESSAGES = {
+  VALIDATION_FAILED: '数据验证失败',
+  UNAUTHORIZED: '未授权访问',
+  FORBIDDEN: '权限不足',
+  NOT_FOUND: '资源不存在',
+  DUPLICATE_ENTRY: '数据已存在',
+  DATABASE_ERROR: '数据库操作失败',
+  UPLOAD_FAILED: '图片上传失败',
+  INVALID_TOKEN: '无效的令牌',
+  TOKEN_EXPIRED: '令牌已过期',
+  INTERNAL_SERVER_ERROR: '服务器内部错误',
+  BAD_REQUEST: '请求参数错误',
+  REQUEST_FAILED: '请求失败',
+  SESSION_EXPIRED: '会话已过期',
+  NETWORK_ERROR: '网络连接错误',
+  REQUEST_CONFIG_ERROR: '请求配置错误'
+};
+
+module.exports = {
+  HTTP_STATUS,
+  RESPONSE_CODES,
+  ERROR_MESSAGES
+};
