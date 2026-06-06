@@ -36,12 +36,12 @@ const config = {
   // Supabase (PostgreSQL) 数据库配置
   database: {
     connectionString: process.env.DATABASE_URL || '',
-    host: process.env.DB_HOST || 'jilfvyspdgasvpzvntyc.supabase.co',
-    user: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'postgres',
-    port: parseInt(process.env.DB_PORT) || 5432,
-    ssl: process.env.DB_SSL !== 'false' ? { rejectUnauthorized: false } : false
+    host: 'jilfvyspdgasvpzvntyc.supabase.co',
+    user: 'postgres',
+    password: '3ab@,VCy*zALsGk',
+    database: 'postgres',
+    port: 5432,
+    ssl: { rejectUnauthorized: false }
   },
 
   // Supabase 客户端配置
