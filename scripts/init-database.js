@@ -108,7 +108,7 @@ class DatabaseInitializer {
       CREATE TABLE IF NOT EXISTS \`users\` (
         \`id\` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
         \`password\` varchar(255) DEFAULT NULL COMMENT '密码',
-        \`user_id\` varchar(50) NOT NULL COMMENT '小石榴号',
+        \`user_id\` varchar(50) NOT NULL COMMENT '小蓝本号',
         \`nickname\` varchar(100) NOT NULL COMMENT '昵称',
         \`email\` varchar(100) DEFAULT NULL COMMENT '邮箱',
         \`avatar\` varchar(500) DEFAULT NULL COMMENT '头像URL',
@@ -529,7 +529,7 @@ class DatabaseInitializer {
 
   async run() {
     try {
-      console.log('=== 小石榴图文社区数据库初始化 ===\n');
+      console.log('=== 小蓝本图文社区数据库初始化 ===\n');
 
       // 创建数据库
       await this.createDatabase();

@@ -46,7 +46,7 @@ router.get('/', optionalAuth, async (req, res) => {
       let whereConditions = [];
       let queryParams = [];
 
-      // 关键词搜索条件 - 匹配小石榴号、昵称、标题、正文内容、标签名称中的任意一种
+      // 关键词搜索条件 - 匹配小蓝本号、昵称、标题、正文内容、标签名称中的任意一种
       if (keyword.trim()) {
         whereConditions.push(`(p.title ILIKE ${$p()} OR p.content ILIKE ${$p()} OR u.nickname ILIKE ${$p()} OR u.user_id ILIKE ${$p()} OR EXISTS (SELECT 1 FROM post_tags pt JOIN tags t ON pt.tag_id = t.id WHERE pt.post_id = p.id AND t.name ILIKE ${$p()}))`);
         queryParams.push(`%${keyword}%`, `%${keyword}%`, `%${keyword}%`, `%${keyword}%`, `%${keyword}%`);

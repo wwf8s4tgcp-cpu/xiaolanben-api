@@ -7,7 +7,7 @@ USE `xiaoshiliu`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
-  `user_id` varchar(50) NOT NULL COMMENT '小石榴号',
+  `user_id` varchar(50) NOT NULL COMMENT '小蓝本号',
   `nickname` varchar(100) NOT NULL COMMENT '昵称',
   `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
   `avatar` varchar(500) DEFAULT NULL COMMENT '头像URL',

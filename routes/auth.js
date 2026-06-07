@@ -121,9 +121,9 @@ router.get('/captcha', (req, res) => {
 // 检查用户ID是否已存在
 router.get('/check-user-id', async (req, res) => {
   try {
-    const { user_id } = req.query; // 前端传过来的小石榴号
+    const { user_id } = req.query; // 前端传过来的小蓝本号
     if (!user_id) {
-      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '请输入小石榴号' });
+      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '请输入小蓝本号' });
     }
     // 查数据库是否已有该ID
     const { rows: existingUser } = await dbExec(
@@ -134,7 +134,7 @@ router.get('/check-user-id', async (req, res) => {
     res.json({
       code: RESPONSE_CODES.SUCCESS,
       data: { isUnique: existingUser.length === 0 },
-      message: existingUser.length > 0 ? '小石榴号已存在' : '小石榴号可用'
+      message: existingUser.length > 0 ? '小蓝本号已存在' : '小蓝本号可用'
     });
   } catch (error) {
     console.error('检查用户ID失败:', error);
@@ -548,11 +548,11 @@ router.post('/register', async (req, res) => {
     }
 
     if (user_id.length < 3 || user_id.length > 15) {
-      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '小石榴号长度必须在3-15位之间' });
+      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '小蓝本号长度必须在3-15位之间' });
     }
 
     if (!/^[a-zA-Z0-9_]+$/.test(user_id)) {
-      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '小石榴号只能包含字母、数字和下划线' });
+      return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '小蓝本号只能包含字母、数字和下划线' });
     }
 
     if (nickname.length > 10) {
@@ -602,7 +602,7 @@ router.post('/register', async (req, res) => {
       [userId.toString()]
     );
 
-    console.log(`用户注册成功 - 用户ID: ${userId}, 小石榴号: ${userRows[0].user_id}`);
+    console.log(`用户注册成功 - 用户ID: ${userId}, 小蓝本号: ${userRows[0].user_id}`);
 
     res.json({
       code: RESPONSE_CODES.SUCCESS,
@@ -697,7 +697,7 @@ router.post('/login', async (req, res) => {
       }
     }
 
-    console.log(`用户登录成功 - 用户ID: ${user.id}, 小石榴号: ${user.user_id}`);
+    console.log(`用户登录成功 - 用户ID: ${user.id}, 小蓝本号: ${user.user_id}`);
 
     res.json({
       code: RESPONSE_CODES.SUCCESS,

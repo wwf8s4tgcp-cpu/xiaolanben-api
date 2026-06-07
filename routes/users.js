@@ -28,7 +28,7 @@ router.get('/search', optionalAuth, async (req, res) => {
       return res.status(HTTP_STATUS.BAD_REQUEST).json({ code: RESPONSE_CODES.VALIDATION_ERROR, message: '请输入搜索关键词' });
     }
 
-    // 搜索用户：支持昵称和小石榴号搜索
+    // 搜索用户：支持昵称和小蓝本号搜索
     const { rows } = await dbExec(
       `SELECT u.id, u.user_id, u.nickname, u.avatar, u.bio, u.location, u.follow_count, u.fans_count, u.like_count, u.created_at, u.verified,
               (SELECT COUNT(*) FROM posts WHERE user_id = u.id AND status = 0) as post_count
@@ -119,7 +119,7 @@ router.get('/search', optionalAuth, async (req, res) => {
 router.get('/:id/personality-tags', async (req, res) => {
   try {
     const userIdParam = req.params.id;
-    // 始终通过小石榴号查找用户信息
+    // 始终通过小蓝本号查找用户信息
     const query = 'SELECT gender, zodiac_sign, mbti, education, major, interests FROM users WHERE user_id = ?';
     const params = [userIdParam];
 
@@ -161,7 +161,7 @@ router.get('/:id/personality-tags', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userIdParam = req.params.id;
-    // 只通过小石榴号(user_id)进行查找
+    // 只通过小蓝本号(user_id)进行查找
     const { rows } = await dbExec(
       `SELECT u.id, u.user_id, u.nickname, u.avatar, u.bio, u.location, u.email, u.gender, u.zodiac_sign, u.mbti, u.education, u.major, u.interests, u.follow_count, u.fans_count, u.like_count, u.created_at, u.verified, uv.title as verified_title
        FROM users u

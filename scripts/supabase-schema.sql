@@ -35,7 +35,7 @@ CREATE INDEX IF NOT EXISTS "idx_users_email" ON "users" ("email");
 CREATE INDEX IF NOT EXISTS "idx_users_created_at" ON "users" ("created_at");
 COMMENT ON TABLE "users" IS '用户表';
 COMMENT ON COLUMN "users"."id" IS '用户ID';
-COMMENT ON COLUMN "users"."user_id" IS '小石榴号';
+COMMENT ON COLUMN "users"."user_id" IS '小蓝本号';
 COMMENT ON COLUMN "users"."is_active" IS '是否激活';
 COMMENT ON COLUMN "users"."verified" IS '认证状态：false-未认证，true-已认证';
 

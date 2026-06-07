@@ -137,7 +137,7 @@ const config = {
     // 发件人配置
     from: {
       email: process.env.EMAIL_FROM || '',
-      name: process.env.EMAIL_FROM_NAME || '小石榴校园图文社区'
+      name: process.env.EMAIL_FROM_NAME || '小蓝本校园图文社区'
     }
   },
 

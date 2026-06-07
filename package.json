@@ -1,7 +1,7 @@
 {
     "name": "express-project",
     "version": "1.0.0",
-    "description": "小石榴校园图文社区Express后端项目",
+    "description": "小蓝本校园图文社区Express后端项目",
     "author": "@ZTMYO",
     "main": "app.js",
     "scripts": {
@@ -26,6 +26,7 @@
         "svg-captcha": "^1.4.0"
     },
     "devDependencies": {
+        "@flydotio/dockerfile": "^0.7.10",
         "nodemon": "^3.0.1"
     }
 }

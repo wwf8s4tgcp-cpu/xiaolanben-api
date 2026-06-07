@@ -489,7 +489,7 @@ class DataGenerator {
       }
 
       const user = {
-        user_id: `user${String(i + 1).padStart(3, '0')}`, // 小石榴号，字符串格式
+        user_id: `user${String(i + 1).padStart(3, '0')}`, // 小蓝本号，字符串格式
         password: '123456', // 使用明文密码
         nickname: this.usernames[i], // 按顺序使用usernames数组，不重复
         avatar: this.generateRandomAvatarUrl(),
